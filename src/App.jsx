@@ -31,9 +31,9 @@ function App() {
   }
 
   function deleteTodo(todoId) {
-    setTodos(currentTodos => {
-      return currentTodos.filter(todo => todo.id !== todoId)
-    })
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== todoId);
+    });
   }
 
   return (

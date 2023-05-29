@@ -1,4 +1,4 @@
-export default function FormFilter() {
+export function FormFilter() {
   return (
     <div className="filter-form">
       <div className="filter-form-group">

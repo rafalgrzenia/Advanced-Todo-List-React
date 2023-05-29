@@ -1,11 +1,12 @@
-import { useState } from "react"
-import "./styles.css"
-import { TodoItem } from "./TodoItem"
-import FormFilter from "./FormFilter"
+import { useState } from "react";
+import "./styles.css";
+import { TodoItem } from "./TodoItem";
+import { FormFilter } from "./FormFilter";
+import { useLocalStorage } from "./useLocalStorage";
 
 function App() {
-  const [newTodoName, setNewTodoName] = useState("")
-  const [todos, setTodos] = useState([])
+  const [newTodoName, setNewTodoName] = useState("");
+  const [todos, setTodos] = useLocalStorage("TODO_NAME", []);
 
   function addNewTodo() {
     if (newTodoName === "") return

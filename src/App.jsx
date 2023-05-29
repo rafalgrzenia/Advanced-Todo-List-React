@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./styles.css"
 import { TodoItem } from "./TodoItem"
+import FormFilter from "./FormFilter"
 
 function App() {
   const [newTodoName, setNewTodoName] = useState("")
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+      <FormFilter />
       <ul id="list">
         {todos.map(todo => {
           return (

@@ -21,13 +21,13 @@ function App() {
   }
 
   function toggleTodo(todoId, completed) {
-    setTodos(currentTodos => {
-      return currentTodos.map(todo => {
-        if (todo.id === todoId) return { ...todo, completed }
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === todoId) return { ...todo, completed };
 
-        return todo
-      })
-    })
+        return todo;
+      });
+    });
   }
 
   function deleteTodo(todoId) {

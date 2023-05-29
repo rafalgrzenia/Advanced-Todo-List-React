@@ -9,15 +9,15 @@ function App() {
   const [todos, setTodos] = useLocalStorage("TODO_NAME", []);
 
   function addNewTodo() {
-    if (newTodoName === "") return
+    if (newTodoName === "") return;
 
-    setTodos(currentTodos => {
+    setTodos((currentTodos) => {
       return [
         ...currentTodos,
         { name: newTodoName, completed: false, id: crypto.randomUUID() },
-      ]
-    })
-    setNewTodoName("")
+      ];
+    });
+    setNewTodoName("");
   }
 
   function toggleTodo(todoId, completed) {

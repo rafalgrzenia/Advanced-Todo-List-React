@@ -40,7 +40,7 @@ function App() {
     <>
       <FormFilter />
       <ul id="list">
-        {todos.map(todo => {
+        {todos.map((todo) => {
           return (
             <TodoItem
               key={todo.id}
@@ -48,7 +48,7 @@ function App() {
               toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
             />
-          )
+          );
         })}
       </ul>
 
@@ -58,12 +58,12 @@ function App() {
           type="text"
           id="todo-input"
           value={newTodoName}
-          onChange={e => setNewTodoName(e.target.value)}
+          onChange={(e) => setNewTodoName(e.target.value)}
         />
         <button onClick={addNewTodo}>Add Todo</button>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -3,6 +3,7 @@ import { TodoForm } from "./TodoForm";
 import { TodoItem } from "./TodoItem";
 import {v4 as uuidv4} from 'uuid';
 import "./styles.css";
+import { FilterTodoList } from "./FilterTodoList";
 
 function App() {
   const [todoName, setTodoName] = useState("");
@@ -27,6 +28,8 @@ function App() {
 
   return (
     <>
+    <FilterTodoList />
+
       <ul id="list">
         {todoList.map(todo => <TodoItem key={todo.id} {...todo}  deleteTodoItem={deleteTodoItem} />)}
       </ul>

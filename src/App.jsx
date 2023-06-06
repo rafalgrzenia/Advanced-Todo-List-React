@@ -4,7 +4,7 @@ import { TodoItem } from "./TodoItem";
 import "./styles.css";
 
 function App() {
-  const [newTodoName, setnewTodoName] = useState("");
+  const [todoName, setTodoName] = useState("");
   const [todoList, setNewTodoList] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function App() {
   function addTodoItem(e) {
     e.preventDefault();
     setNewTodoList((currentTodos) => {
-      return [...currentTodos, { name: newTodoName }];
+      return [...currentTodos, { name: todoName }];
     });
   }
 
@@ -23,7 +23,7 @@ function App() {
       <ul id="list">
         {todoList.map(todo => <TodoItem name={todo.name} />)}
       </ul>
-      <TodoForm setnewTodoName={setnewTodoName} addTodoItem={addTodoItem} />
+      <TodoForm setTodoName={setTodoName} addTodoItem={addTodoItem} />
     </>
   );
 }

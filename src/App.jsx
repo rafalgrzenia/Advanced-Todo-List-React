@@ -19,11 +19,16 @@ function App() {
     });
   }
 
+  function deleteTodoItem(todoId) {
+    setNewTodoList(currentTodos => {
+     return currentTodos.filter(todo => todo.id !== todoId)
+    })
+  }
 
   return (
     <>
       <ul id="list">
-        {todoList.map(todo => <TodoItem key={todo.id} name={todo.name} />)}
+        {todoList.map(todo => <TodoItem key={todo.id} {...todo}  deleteTodoItem={deleteTodoItem} />)}
       </ul>
       <TodoForm setTodoName={setTodoName} addTodoItem={addTodoItem} />
     </>

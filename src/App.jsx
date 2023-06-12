@@ -9,6 +9,11 @@ function App() {
   const [todoName, setTodoName] = useState("");
   const [todoList, setNewTodoList] = useState([]);
 
+  const [filterName, setFilterName] = useState("");
+
+  const filteredTodos = todoList.filter((todo) => {
+    return todo.name.includes(filterName);
+  });
 
   function addTodoItem(e) {
     e.preventDefault();
@@ -23,13 +28,12 @@ function App() {
     });
   }
 
-
   return (
     <>
-      <FilterTodoList/>
+      <FilterTodoList filterName={filterName} setFilterName={setFilterName} />
 
       <ul id="list">
-        {todoList.map((todo) => (
+        {filteredTodos.map((todo) => (
           <TodoItem key={todo.id} {...todo} deleteTodoItem={deleteTodoItem} />
         ))}
       </ul>

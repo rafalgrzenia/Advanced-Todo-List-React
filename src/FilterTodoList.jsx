@@ -1,4 +1,7 @@
-export function FilterTodoList({ filterName, setFilterName }) {
+export function FilterTodoList({
+  filterName,
+  setFilterName,
+}) {
   return (
     <div className="filter-form">
       <div className="filter-form-group">

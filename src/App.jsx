@@ -24,6 +24,8 @@ function App() {
         { id: uuidv4(), name: todoName, completed: false },
       ];
     });
+
+    setTodoName("");
   }
 
   function toggleTodo(todoId, completed) {
@@ -43,7 +45,12 @@ function App() {
 
   return (
     <>
-      <FilterTodoList filterName={filterName} setFilterName={setFilterName}  hideCompletedTodo={hideCompletedTodo} setHideCompletedTodo={setHideCompletedTodo}/>
+      <FilterTodoList
+        filterName={filterName}
+        setFilterName={setFilterName}
+        hideCompletedTodo={hideCompletedTodo}
+        setHideCompletedTodo={setHideCompletedTodo}
+      />
       <ul id="list">
         {filteredTodos.map((todo) => (
           <TodoItem
@@ -54,7 +61,11 @@ function App() {
           />
         ))}
       </ul>
-      <TodoForm setTodoName={setTodoName} addTodoItem={addTodoItem} />
+      <TodoForm
+        todoName={todoName}
+        setTodoName={setTodoName}
+        addTodoItem={addTodoItem}
+      />
     </>
   );
 }

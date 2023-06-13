@@ -6,10 +6,23 @@ import "./styles.css";
 import { FilterTodoList } from "./FilterTodoList";
 
 function App() {
-  const [todoName, setTodoName] = useState("");
-  const [todoList, setNewTodoList] = useState([]);
+  const TODOS_LIST_KEY = "TODOS_LIST";
+
+  const [todoName, setTodoName] = useState("")
+  const [todoList, setNewTodoList] = useState(() => {
+    const localStorageValue = localStorage.getItem(TODOS_LIST_KEY);
+    if (!localStorageValue) {
+      return [];
+    } else {
+      return JSON.parse(localStorageValue);
+    }
+  });
   const [filterName, setFilterName] = useState("");
   const [hideCompletedTodo, setHideCompletedTodo] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem(TODOS_LIST_KEY, JSON.stringify(todoList));
+  }, [todoList]);
 
   const filteredTodos = todoList.filter((todo) => {
     if (hideCompletedTodo && todo.completed) return;

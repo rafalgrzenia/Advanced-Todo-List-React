@@ -18,6 +18,7 @@ function App() {
 
   function addTodoItem(e) {
     e.preventDefault();
+    if(todoName === "") return
     setNewTodoList((currentTodos) => {
       return [
         ...currentTodos,

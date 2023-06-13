@@ -1,6 +1,8 @@
 export function FilterTodoList({
   filterName,
   setFilterName,
+  hideCompletedTodo,
+  setHideCompletedTodo
 }) {
   return (
     <div className="filter-form">
@@ -14,7 +16,7 @@ export function FilterTodoList({
         />
       </div>
       <label>
-        <input type="checkbox" />
+        <input value={hideCompletedTodo} onChange={e => setHideCompletedTodo(e.target.checked)} type="checkbox" />
         Hide Completed
       </label>
     </div>

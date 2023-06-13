@@ -9,7 +9,10 @@ function App() {
   const [todoName, setTodoName] = useState("");
   const [todoList, setNewTodoList] = useState([]);
   const [filterName, setFilterName] = useState("");
+  const [hideCompletedTodo, setHideCompletedTodo] = useState(false);
+
   const filteredTodos = todoList.filter((todo) => {
+    if (hideCompletedTodo && todo.completed) return;
     return todo.name.includes(filterName);
   });
 
@@ -40,7 +43,7 @@ function App() {
 
   return (
     <>
-      <FilterTodoList filterName={filterName} setFilterName={setFilterName} />
+      <FilterTodoList filterName={filterName} setFilterName={setFilterName}  hideCompletedTodo={hideCompletedTodo} setHideCompletedTodo={setHideCompletedTodo}/>
       <ul id="list">
         {filteredTodos.map((todo) => (
           <TodoItem
